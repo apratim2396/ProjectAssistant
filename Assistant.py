@@ -2,6 +2,7 @@ import ctypes
 import datetime
 import json
 import os
+import _pyinstaller_hooks_contrib
 import tkinter                       #not used yet
 import random                        #not used yet
 import operator                      #not used yet
@@ -10,7 +11,6 @@ import feedparser                    #not used yet
 import requests                      #not used yet
 import shutil                        #not used yet
 from twilio.rest import Client       #not used yet
-from clint.textui import progress    #not used yet
 from bs4 import BeautifulSoup        #not used yet
 import win32com.client as wincl      #not used yet
 import smtplib
@@ -28,7 +28,7 @@ from wikipedia import wikipedia
 
 s = sr.Recognizer()
 engine = pyttsx3.init()
-voices = engine.getProperty('vioices')
+voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 def talk(audio):            #we will use talk word to let the system speak
@@ -143,7 +143,7 @@ if __name__ == "__main__":
         elif 'i love you' in info or 'do you love me' in info:
             pyttsx3.speak("Tinder download kar lo aap, Yaha Daal nahi galne wali")
 
-        elif 'who is are' in info:
+        elif 'who are you' in info:
             pyttsx3.speak("I am your amazing assistant")
 
         elif 'you suck' in info or 'you are dumb' in info:
